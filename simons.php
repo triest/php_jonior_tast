@@ -7,7 +7,7 @@
 
     $a = 5;  // начало отрезка
     $b = 25; //конец отрезка
-    $n = 10000000; //число шагов
+    $n = 1000; //число шагов
 
     $h = ($b - $a) / (2 * $n);
     $s1 = 0;
@@ -33,8 +33,9 @@
         $mb = str_replace("x", $a, $function); // заменяет переменную х на пришедшую переменную
         try {
             $p = eval('return ' . $mb . ';');  //считаем значение
-        } catch (Exception $exception) {
+        } catch (ParseError $exception) {
             echo "Error in calculate function $mb";
+            echo $exception;
             exit(1);
         }
 

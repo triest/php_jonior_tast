@@ -25,8 +25,9 @@
         $mb = str_replace("x", $a, $function); // заменяет переменную х на пришедшую переменную
         try {
             $p = eval('return ' . $mb . ';');  //считаем значение
-        } catch (Exception $exception) {
+        } catch (ParseError  $exception) {
             echo "Error in calculate function $mb";
+            echo $exception;
             exit(1);
         }
 
